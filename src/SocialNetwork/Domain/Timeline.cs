@@ -30,15 +30,16 @@
         public string FormattedTweets()
         {
             StringBuilder formattedOutput = new StringBuilder();
+
+            foreach (var followedUser in _user.Following)
+            {
+                formattedOutput.AppendFormat("{0} followed {1}", _user.Name, followedUser.Name);
+            }
+
             foreach (var tweet in GetTweets())
             {
                 TimeSpan dateDiff = (_currentTime - tweet.DatePublished);
                 formattedOutput.AppendLine(string.Format("{0} ({1})", tweet.Message, DateTimeHelper.GetFriendlyRelativeTime(dateDiff)));
-            }
-
-            foreach (var follower in _user.Followers)
-            {{}
-                formattedOutput.AppendFormat("{0} followed {1}", _user.Name, follower.Name);
             }
 
             return formattedOutput.ToString();

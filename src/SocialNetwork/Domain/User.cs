@@ -10,17 +10,17 @@
 
         public List<Tweet> TimelineEvents { get; set; }
 
-        public List<User> Followers { get; set; }
+        public List<User> Following { get; set; }
 
         public User(string name)
         {
             Name = name;
-            Followers = new List<User>();
+            Following = new List<User>();
         }
 
-        public void AddFollower(User follower)
+        public void Follow(User follower)
         {
-            Followers.Add(follower);
+            Following.Add(follower);
         }
 
     }

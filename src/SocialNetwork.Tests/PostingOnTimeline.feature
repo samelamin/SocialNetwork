@@ -1,7 +1,7 @@
 ﻿Feature: Posting On Timeline
 	In order to socialise with friends
-	As a user who wants to update tweitter
-	I want to post and see my friends timeline
+	As a user who uses this social network
+	I want to tweet and see my friends timeline
 
 Scenario Outline: Multiple Users Posting 
 	Given a User "<user_name>" has an account 
@@ -33,10 +33,9 @@ Scenario Outline: Multiple Users Posting
 		| Bob       | Damn! We lost!           | Damn! We lost! (1 minute ago)            | 1              |
 		| Bob       | Good game though.        | Good game though. (2 minutes ago)        | 2              |
 
-
 	Scenario: Charlie Follows Alice
 		Given a User "Charlie" has an account
 		When they Follow User "Alice" 
 		And they publish a tweet "I'm in New York today! Anyone want to have a coffee?" 2 seconds ago
 		Then the timeline should contain "Charlie followed Alice"
-		Then the timeline should contain "Damn! We lost! (1 minute ago)"
+		Then the timeline should contain "I'm in New York today! Anyone want to have a coffee? (2 seconds ago)"

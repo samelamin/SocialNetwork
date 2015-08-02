@@ -32,8 +32,8 @@ namespace SocialNetwork.Tests
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Posting On Timeline", "In order to socialise with friends\nAs a user who wants to update tweitter\nI want " +
-                    "to post and see my friends timeline", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Posting On Timeline", "In order to socialise with friends\nAs a user who uses this social network\nI want " +
+                    "to tweet and see my friends timeline", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -131,19 +131,20 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CharlieFollowsAlice()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Charlie Follows Alice", ((string[])(null)));
-#line 37
+#line 36
  this.ScenarioSetup(scenarioInfo);
-#line 38
+#line 37
   testRunner.Given("a User \"Charlie\" has an account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 39
+#line 38
   testRunner.When("they Follow User \"Alice\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
+#line 39
   testRunner.And("they publish a tweet \"I\'m in New York today! Anyone want to have a coffee?\" 2 sec" +
                     "onds ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
+#line 40
   testRunner.Then("the timeline should contain \"Charlie followed Alice\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 42
-  testRunner.Then("the timeline should contain \"Damn! We lost! (1 minute ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+  testRunner.Then("the timeline should contain \"I\'m in New York today! Anyone want to have a coffee?" +
+                    " (2 seconds ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

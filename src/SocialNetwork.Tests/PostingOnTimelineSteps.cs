@@ -51,7 +51,7 @@ namespace SocialNetwork.Tests
         public void WhenTheyFollowUser(string userToFollow)
         {
             famousUser = new User(userToFollow);
-            famousUser.AddFollower(_user);
+            _user.Follow(famousUser);
         }
 
         [Then(@"the timeline should contain ""(.*)""")]
