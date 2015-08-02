@@ -14,7 +14,7 @@ namespace SocialNetwork.Tests
     {
         DateTime _today = DateTime.Today;
 
-        readonly TweetsRepository _tweetsRepository = new TweetsRepository();
+        ITweetsRepository _tweetsRepository = new TweetsRepository();
 
         Timeline _timeline;
 
@@ -57,7 +57,7 @@ namespace SocialNetwork.Tests
         [Then(@"the timeline should contain ""(.*)""")]
         public void ThenTheTimelineShouldContain(string formattedMessage)
         {
-            _timeline.FormattedTweets().ShouldContain(formattedMessage);
+            _timeline.FormatWallTweets().ShouldContain(formattedMessage);
         }
     }
 }

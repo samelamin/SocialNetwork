@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\..\packages\Moq.4.2.1507.0118\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -49,12 +52,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PostingOnTimelineSteps.cs" />
+    <Compile Include="SendingCommandsToConsoleApp.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SendingCommandsToConsoleApp.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PostingOnTimeline.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PostingOnTimeline.feature</DependentUpon>
     </Compile>
+    <Compile Include="SendingCommandsToConsoleAppSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,8 +72,16 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PostingOnTimeline.feature.cs</LastGenOutput>
     </None>
+    <None Include="SendingCommandsToConsoleApp.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SendingCommandsToConsoleApp.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SocialNetwork.ConsoleApplication\SocialNetwork.ConsoleApplication.csproj">
+      <Project>{5c3feb5c-21b5-431d-b412-9876a5424937}</Project>
+      <Name>SocialNetwork.ConsoleApplication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SocialNetwork\SocialNetwork.csproj">
       <Project>{A8EDE7E7-9AF6-4A14-AC0B-C2B1C58D9944}</Project>
       <Name>SocialNetwork</Name>

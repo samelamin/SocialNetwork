@@ -19,7 +19,7 @@ namespace SocialNetwork.Tests
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Posting On Timeline")]
+    [NUnit.Framework.DescriptionAttribute("Posting On Wall")]
     public partial class PostingOnTimelineFeature
     {
         
@@ -32,7 +32,7 @@ namespace SocialNetwork.Tests
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Posting On Timeline", "In order to socialise with friends\nAs a user who uses this social network\nI want " +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Posting On Wall", "In order to socialise with friends\nAs a user who uses this social network\nI want " +
                     "to tweet and see my friends timeline", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }

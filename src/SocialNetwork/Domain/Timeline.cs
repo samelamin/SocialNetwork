@@ -11,11 +11,11 @@
     {
         readonly User _user;
 
-        readonly TweetsRepository _tweetsRepository;
+        readonly ITweetsRepository _tweetsRepository;
 
         readonly DateTime _currentTime;
         
-        public Timeline(User user,TweetsRepository tweetsRepository, DateTime currentTime)
+        public Timeline(User user,ITweetsRepository tweetsRepository, DateTime currentTime)
         {
             _user = user;
             _tweetsRepository = tweetsRepository;
@@ -27,7 +27,7 @@
             return _tweetsRepository.GetTweets(_user);
         }
 
-        public string FormattedTweets()
+        public string FormatWallTweets()
         {
             StringBuilder formattedOutput = new StringBuilder();
 
@@ -35,6 +35,19 @@
             {
                 formattedOutput.AppendFormat("{0} followed {1}", _user.Name, followedUser.Name);
             }
+
+            foreach (var tweet in GetTweets())
+            {
+                TimeSpan dateDiff = (_currentTime - tweet.DatePublished);
+                formattedOutput.AppendLine(string.Format("{0} ({1})", tweet.Message, DateTimeHelper.GetFriendlyRelativeTime(dateDiff)));
+            }
+
+            return formattedOutput.ToString();
+        }
+
+        public string FormatReadTweets()
+        {
+            StringBuilder formattedOutput = new StringBuilder();
 
             foreach (var tweet in GetTweets())
             {

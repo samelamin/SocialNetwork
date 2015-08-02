@@ -4,7 +4,14 @@ using SocialNetwork.Domain;
 
 namespace SocialNetwork.Infrastructure
 {
-    public class TweetsRepository
+    public interface ITweetsRepository
+    {
+        void PostTweet(Tweet tweet);
+
+        IEnumerable<Tweet> GetTweets(User user);
+    }
+
+    public class TweetsRepository : ITweetsRepository
     {
         public static List<Tweet> Tweets { get; set; }
 
