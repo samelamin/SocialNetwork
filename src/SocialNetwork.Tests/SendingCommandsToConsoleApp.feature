@@ -13,7 +13,7 @@ Scenario: Reading a users timeline
 	Given the application is awaiting a command
 	And a tweet with message "Testing tweets" was posted by user "Sam" 5 minutes ago
 	When I enter a read command for user "Sam" timeline
-	Then then the console should return "Testing tweets (5 minutes ago)"
+	Then then the console should return "Sam - Testing tweets (5 minutes ago)"
 
 Scenario: Follow a user
 	Given the application is awaiting a command

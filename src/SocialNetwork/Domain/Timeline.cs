@@ -46,7 +46,7 @@
             foreach (var tweet in GetTweets())
             {
                 TimeSpan dateDiff = (_currentTime - tweet.DatePublished);
-                formattedOutput.AppendLine(string.Format("{0} ({1})", tweet.Message, DateTimeHelper.GetFriendlyRelativeTime(dateDiff)));
+                formattedOutput.AppendLine(string.Format("{0} - {1} ({2})",tweet.User.Name, tweet.Message, DateTimeHelper.GetFriendlyRelativeTime(dateDiff)));
             }
 
             return formattedOutput.ToString();
