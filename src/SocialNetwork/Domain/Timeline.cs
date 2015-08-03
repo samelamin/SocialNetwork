@@ -29,17 +29,11 @@
 
         public string FormatWallTweets()
         {
-            StringBuilder formattedOutput = new StringBuilder();
-
+            StringBuilder formattedOutput = new StringBuilder(FormatReadTweets());
+            
             foreach (var followedUser in _user.Following)
             {
                 formattedOutput.AppendFormat("{0} followed {1}", _user.Name, followedUser.Name);
-            }
-
-            foreach (var tweet in GetTweets())
-            {
-                TimeSpan dateDiff = (_currentTime - tweet.DatePublished);
-                formattedOutput.AppendLine(string.Format("{0} ({1})", tweet.Message, DateTimeHelper.GetFriendlyRelativeTime(dateDiff)));
             }
 
             return formattedOutput.ToString();

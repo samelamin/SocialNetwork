@@ -18,7 +18,7 @@ namespace SocialNetwork.ConsoleApplication.Commands
             {
                 case CommandType.Post:
                     {
-                        return new PostCommand(user, tweetsRepository, parsedInput);
+                        return new PostCommand(user, tweetsRepository, parsedInput, textWriter);
                     }
                 case CommandType.Read:
                     {
@@ -26,12 +26,12 @@ namespace SocialNetwork.ConsoleApplication.Commands
                     }
                 case CommandType.Follow:
                     {
-                        return new FollowCommand(user, new User(parsedInput.RequiredAction));
+                        return new FollowCommand(user, new User(parsedInput.RequiredAction),textWriter);
                     }
                 case CommandType.Wall:
                 default:
                     {
-                        return new WallCommand(user,tweetsRepository, textWriter);
+                        return new WallCommand(user,tweetsRepository, textWriter, parsedInput);
                     }
      
             }

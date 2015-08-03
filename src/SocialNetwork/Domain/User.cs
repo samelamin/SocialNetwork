@@ -7,9 +7,6 @@
 
         public readonly string Name;
 
-
-        public List<Tweet> TimelineEvents { get; set; }
-
         public List<User> Following { get; set; }
 
         public User(string name)

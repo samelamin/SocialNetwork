@@ -15,16 +15,19 @@ namespace SocialNetwork.ConsoleApplication.Commands
 
         readonly TextWriter _textWriter;
 
-        public WallCommand(User user, ITweetsRepository tweetsRepository, TextWriter textWriter)
+        readonly ParsedInput _parsedInput;
+
+        public WallCommand(User user, ITweetsRepository tweetsRepository, TextWriter textWriter, ParsedInput parsedInput)
         {
             _user = user;
             _tweetsRepository = tweetsRepository;
             _textWriter = textWriter;
+            _parsedInput = parsedInput;
         }
 
         public void Execute()
         {
-            Timeline timeline = new Timeline(_user,_tweetsRepository, DateTime.Now);
+            Timeline timeline = new Timeline(_user,_tweetsRepository, _parsedInput.CurrentDate);
             _textWriter.WriteLine(timeline.FormatWallTweets());
         }
     }
