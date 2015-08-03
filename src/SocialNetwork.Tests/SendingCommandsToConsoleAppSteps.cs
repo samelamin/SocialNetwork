@@ -57,7 +57,6 @@ namespace SocialNetwork.Tests
             User user = _usersRepository.GetUser(username);
             User famousUser = new User(userToFollow);
             user.Following.Add(famousUser);
-
         }
 
 

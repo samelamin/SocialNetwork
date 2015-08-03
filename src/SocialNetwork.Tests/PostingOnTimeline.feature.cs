@@ -90,17 +90,17 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ICanViewBobsTimeline()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can view Bobs timeline", ((string[])(null)));
-#line 18
+#line 17
  this.ScenarioSetup(scenarioInfo);
-#line 19
+#line 18
   testRunner.Given("a User \"Bob\" has an account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 20
+#line 19
   testRunner.When("they publish a tweet \"Damn! we lost!\" 1 mins ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 21
+#line 20
   testRunner.And("they publish a tweet \"Good game though.\" 2 mins ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
+#line 21
   testRunner.Then("the timeline should contain \"Damn! We lost! (1 minute ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 23
+#line 22
   testRunner.Then("the timeline should contain \"Good game though. (2 minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -114,13 +114,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ICanViewAliceAndBobSTimelines(string user_Name, string tweet_Message, string formatted_Tweet, string minutes_Passed, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can view Alice and Bob’s timelines", exampleTags);
-#line 25
+#line 24
  this.ScenarioSetup(scenarioInfo);
-#line 26
+#line 25
   testRunner.Given(string.Format("a User \"{0}\" has an account", user_Name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 27
+#line 26
   testRunner.When(string.Format("they publish a tweet \"{0}\" {1} mins ago", tweet_Message, minutes_Passed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 28
+#line 27
   testRunner.Then(string.Format("the timeline should contain \"{0}\"", formatted_Tweet), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -131,18 +131,18 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CharlieFollowsAlice()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Charlie Follows Alice", ((string[])(null)));
-#line 36
+#line 35
  this.ScenarioSetup(scenarioInfo);
-#line 37
+#line 36
   testRunner.Given("a User \"Charlie\" has an account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 38
+#line 37
   testRunner.When("they Follow User \"Alice\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 39
+#line 38
   testRunner.And("they publish a tweet \"I\'m in New York today! Anyone want to have a coffee?\" 2 sec" +
                     "onds ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
+#line 39
   testRunner.Then("the timeline should contain \"Charlie follows Alice\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 41
+#line 40
   testRunner.Then("the timeline should contain \"I\'m in New York today! Anyone want to have a coffee?" +
                     " (2 seconds ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

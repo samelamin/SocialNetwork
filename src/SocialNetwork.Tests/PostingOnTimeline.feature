@@ -14,7 +14,6 @@ Scenario Outline: Multiple Users Posting
 		| Bob       | Damn! We lost!           |
 		| Bob       | Good game though.        |
 
-
 	Scenario: I can view Bobs timeline
 		Given a User "Bob" has an account 
 		When they publish a tweet "Damn! we lost!" 1 mins ago

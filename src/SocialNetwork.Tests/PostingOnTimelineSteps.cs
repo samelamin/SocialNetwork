@@ -23,9 +23,9 @@ namespace SocialNetwork.Tests
         User famousUser;
 
         [Given(@"a User ""(.*)"" has an account")]
-        public void GivenAUserHasAnAccount(string name)
+        public void GivenAUserHasAnAccount(string username)
         {
-            _user = new User(name);
+            _user = new User(username);
             _timeline = new Timeline(_user, _tweetsRepository, _today);
         }
 
