@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
-      <HintPath>..\..\packages\Moq.4.2.1507.0118\lib\net40\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -51,6 +48,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PostingOnTimeline1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostingOnTimeline.feature</DependentUpon>
+    </Compile>
     <Compile Include="PostingOnTimelineSteps.cs" />
     <Compile Include="SendingCommandsToConsoleApp.feature.cs">
       <AutoGen>True</AutoGen>
@@ -70,7 +72,7 @@
     <None Include="packages.config" />
     <None Include="PostingOnTimeline.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>PostingOnTimeline.feature.cs</LastGenOutput>
+      <LastGenOutput>PostingOnTimeline1.feature.cs</LastGenOutput>
     </None>
     <None Include="SendingCommandsToConsoleApp.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
