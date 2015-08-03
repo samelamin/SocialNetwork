@@ -33,7 +33,7 @@
             
             foreach (var followedUser in _user.Following)
             {
-                formattedOutput.AppendFormat("{0} followed {1}", _user.Name, followedUser.Name);
+                formattedOutput.AppendFormat("{0} follows {1}", _user.Name, followedUser.Name);
             }
 
             return formattedOutput.ToString();

@@ -37,5 +37,5 @@ Scenario Outline: Multiple Users Posting
 		Given a User "Charlie" has an account
 		When they Follow User "Alice" 
 		And they publish a tweet "I'm in New York today! Anyone want to have a coffee?" 2 seconds ago
-		Then the timeline should contain "Charlie followed Alice"
+		Then the timeline should contain "Charlie follows Alice"
 		Then the timeline should contain "I'm in New York today! Anyone want to have a coffee? (2 seconds ago)"

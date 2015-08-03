@@ -19,7 +19,7 @@ namespace SocialNetwork.Tests
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Posting On Wall")]
+    [NUnit.Framework.DescriptionAttribute("Posting On Timeline")]
     public partial class PostingOnTimelineFeature
     {
         
@@ -32,7 +32,7 @@ namespace SocialNetwork.Tests
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Posting On Wall", "In order to socialise with friends\nAs a user who uses this social network\nI want " +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Posting On Timeline", "In order to socialise with friends\nAs a user who uses this social network\nI want " +
                     "to tweet and see my friends timeline", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -141,7 +141,7 @@ this.ScenarioSetup(scenarioInfo);
   testRunner.And("they publish a tweet \"I\'m in New York today! Anyone want to have a coffee?\" 2 sec" +
                     "onds ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
-  testRunner.Then("the timeline should contain \"Charlie followed Alice\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("the timeline should contain \"Charlie follows Alice\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 41
   testRunner.Then("the timeline should contain \"I\'m in New York today! Anyone want to have a coffee?" +
                     " (2 seconds ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

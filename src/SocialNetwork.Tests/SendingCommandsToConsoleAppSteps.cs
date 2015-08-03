@@ -22,7 +22,8 @@ namespace SocialNetwork.Tests
     public class SendingCommandsToConsoleAppSteps
     {
         Program _program;
-        Mock<ITweetsRepository> _tweetsRepository;
+        ITweetsRepository  _tweetsRepository;
+        IUsersRepository   _usersRepository;
         InputParser _inputParser;
         DateTime _today = DateTime.Today;
         StringWriter _textWriter;
@@ -30,33 +31,33 @@ namespace SocialNetwork.Tests
         [Given(@"the application is awaiting a command")]
         public void GivenTheApplicationIsAwaitingACommand()
         {
-            _tweetsRepository = new Mock<ITweetsRepository>();
+            _tweetsRepository = new TweetsRepository();
+            _usersRepository = new UsersRepository();
             _inputParser = new InputParser();
             _textWriter = new StringWriter();
-            _program = new Program(_tweetsRepository.Object, _inputParser, new CommandFactory(), _textWriter);
+            _program = new Program(_tweetsRepository, _usersRepository, _inputParser, new CommandFactory(), _textWriter);
         }
 
         [Given(@"a tweet with message ""(.*)"" exists for a username ""(.*)""")]
         public void GivenATweetWithMessageExistsForAUser(string message, string username)
         {
-            IEnumerable<Tweet> existingTweets = new List<Tweet>() { new Tweet(new User(username), message, _today) };
-            _tweetsRepository.Setup(repo => repo.GetTweets(new User(username))).Returns(existingTweets);
+            _tweetsRepository.PostTweet(new Tweet(new User(username), message, _today));
         }
 
         [Given(@"a tweet with message ""(.*)"" was posted by user ""(.*)"" (.*) minutes ago")]
         public void GivenATweetWithMessageWasPostedByUserMinutesAgo(string message, string username, int minutesPassed)
         {
-            IEnumerable<Tweet> existingTweets = new List<Tweet>() { new Tweet(new User(username), message, _today.AddMinutes(-minutesPassed)) };
-            _tweetsRepository.Setup(repo => repo.GetTweets(It.IsAny<User>())).Returns(existingTweets);
+            _tweetsRepository.PostTweet(new Tweet(new User(username), message, _today.AddMinutes(-minutesPassed)));
         }
 
 
         [Given(@"the user ""(.*)"" has followed ""(.*)""")]
-        public void GivenTheUserHasFollowed(string username, string famousUser)
+        public void GivenTheUserHasFollowed(string username, string userToFollow)
         {
-            string input = string.Format("{0} follows {1}", username, famousUser);
-            var parsedInput = _inputParser.Parse(input, _today);
-            _program.Execute(parsedInput);
+            User user = _usersRepository.GetUser(username);
+            User famousUser = new User(userToFollow);
+            user.Following.Add(famousUser);
+
         }
 
 
@@ -75,12 +76,6 @@ namespace SocialNetwork.Tests
             _program.Execute(parsedInput);
         }
 
-        
-        [Then(@"there should be atleast (.*) tweet posted")]
-        public void ThenThereShouldBeAtleastTweetPosted(int tweetCount)
-        {
-            _tweetsRepository.Verify(repo => repo.PostTweet(It.IsAny<Tweet>()), Times.AtLeastOnce);
-        }
 
         [Then(@"then the console should return ""(.*)""")]
         public void ThenThenTheConsoleShouldReturn(string expectedOutput)
@@ -104,13 +99,10 @@ namespace SocialNetwork.Tests
             _program.Execute(parsedInput);
         }
 
-
-        [Then(@"the console should return ""(.*)""")]
-        public void ThenTheConsoleShouldReturn(string expectedOutput)
+        [Then(@"the console should contain ""(.*)""")]
+        public void ThenTheConsoleShouldContain(string expectedOutput)
         {
-            _textWriter.ToString().ShouldBe(expectedOutput);
+            _textWriter.ToString().ShouldContain(expectedOutput);
         }
-
-
     }
 }

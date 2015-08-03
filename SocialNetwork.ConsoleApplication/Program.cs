@@ -15,6 +15,8 @@ namespace SocialNetwork.ConsoleApplication
     {
         static ITweetsRepository _tweetsRepository;
 
+        readonly IUsersRepository _usersRepository;
+
         private readonly ConsoleWriter _consoleWriter;
 
         readonly InputParser _inputParser;
@@ -23,9 +25,10 @@ namespace SocialNetwork.ConsoleApplication
 
         readonly TextWriter _textWriter;
 
-        public Program(ITweetsRepository tweetsRepository, InputParser inputParser, CommandFactory commandFactory, TextWriter textWriter)
+        public Program(ITweetsRepository tweetsRepository, IUsersRepository usersRepository, InputParser inputParser, CommandFactory commandFactory, TextWriter textWriter)
         {
             _tweetsRepository = tweetsRepository;
+            _usersRepository = usersRepository;
             _inputParser = inputParser;
             _commandFactory = commandFactory;
             _textWriter = textWriter;
@@ -39,6 +42,7 @@ namespace SocialNetwork.ConsoleApplication
             _commandFactory = new CommandFactory();
             _inputParser = new InputParser();
             _tweetsRepository = new TweetsRepository();
+            _usersRepository = new UsersRepository();
         }
 
         public void PrintInstructions()
@@ -60,7 +64,7 @@ namespace SocialNetwork.ConsoleApplication
         }
         public virtual void Execute(ParsedInput parsedInput)
         {
-            var command = _commandFactory.Create(new User(parsedInput.Username), parsedInput, _tweetsRepository, _textWriter);
+            var command = _commandFactory.Create(_usersRepository.GetUser(parsedInput.Username), parsedInput, _tweetsRepository, _textWriter);
             command.Execute();
         }
 
