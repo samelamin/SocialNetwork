@@ -13,6 +13,10 @@ namespace SocialNetwork.ConsoleApplication
 {
     public class InputParser
     {
+        const string _followsCommand = "FOLLOWS";
+
+        const string _wallCommand = "WALL";
+
         public ParsedInput Parse(string input, DateTime currentDate)
         {
             var parsedInput = new ParsedInput { CurrentDate = currentDate };
@@ -40,11 +44,11 @@ namespace SocialNetwork.ConsoleApplication
 
             switch (command.ToUpper())
             {
-                case "FOLLOWS":
+                case _followsCommand:
                     commandType = CommandType.Follow;
                     break;
 
-                case "WALL":
+                case _wallCommand:
                     commandType = CommandType.Wall;
                     break;
 

@@ -27,7 +27,7 @@ namespace SocialNetwork.ConsoleApplication.Commands
         public void Execute()
         {
             _tweetsRepository.PostTweet(new Tweet(_user,_parsedInput.RequiredAction, _parsedInput.CurrentDate));
-            _textWriter.Write("Tweet Sent");
+            _textWriter.WriteLine("Tweet Sent");
         }
     }
 }

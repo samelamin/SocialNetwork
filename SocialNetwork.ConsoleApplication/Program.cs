@@ -54,7 +54,7 @@ namespace SocialNetwork.ConsoleApplication
         {
             do
             {
-                _textWriter.Write("Please enter a command:");
+                _textWriter.WriteLine("Please enter a command:");
                 var stringCommand = Console.ReadLine();
                 var parsedInput = _inputParser.Parse(stringCommand, DateTime.Now);
 

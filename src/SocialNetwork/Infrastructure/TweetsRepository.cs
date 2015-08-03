@@ -27,7 +27,7 @@ namespace SocialNetwork.Infrastructure
 
         public IEnumerable<Tweet> GetTweets(User user)
         {
-            return Tweets.Where(tweet => tweet.User.Name == user.Name);
+            return Tweets.Where(tweet => tweet.User.Name.ToUpper() == user.Name.ToUpper());
         }
     }
 }

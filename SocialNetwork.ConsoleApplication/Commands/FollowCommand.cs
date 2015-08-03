@@ -26,7 +26,7 @@ namespace SocialNetwork.ConsoleApplication.Commands
         public void Execute()
         {
             _user.Following.Add(_userToFollow);
-            _textWriter.Write("{0} has followed {1}", _user.Name, _userToFollow.Name);
+            _textWriter.WriteLine("{0} has followed {1}", _user.Name, _userToFollow.Name);
         }
     }
 }
