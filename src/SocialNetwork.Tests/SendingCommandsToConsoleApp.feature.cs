@@ -134,6 +134,29 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I enter a wall command for \"Sam\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 28
  testRunner.Then("the console should contain \"Sam follows Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 29
+ testRunner.And("then the console should return \"Sam - Testing tweets (5 minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Display a wall different casing")]
+        public virtual void DisplayAWallDifferentCasing()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display a wall different casing", ((string[])(null)));
+#line 31
+ this.ScenarioSetup(scenarioInfo);
+#line 32
+ testRunner.Given("the application is awaiting a command", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+ testRunner.And("a tweet with message \"Testing tweets\" was posted by user \"Sam\" 5 minutes ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.And("the user \"Sam\" has followed \"Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.When("I enter a wall command for \"sam\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+ testRunner.Then("the console should contain \"Sam follows Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
