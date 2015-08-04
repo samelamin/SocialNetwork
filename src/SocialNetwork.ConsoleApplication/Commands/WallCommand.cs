@@ -27,8 +27,8 @@ namespace SocialNetwork.ConsoleApplication.Commands
 
         public void Execute()
         {
-            Timeline timeline = new Timeline(_user,_tweetsRepository, _parsedInput.CurrentDate);
-            _textWriter.WriteLine(timeline.FormatWallTweets());
+            Timeline timeline = new Timeline(_tweetsRepository, _parsedInput.CurrentDate);
+            _textWriter.WriteLine(timeline.FormatWallTweets(_user));
         }
     }
 }

@@ -26,7 +26,7 @@ namespace SocialNetwork.Tests
         public void GivenAUserHasAnAccount(string username)
         {
             _user = new User(username);
-            _timeline = new Timeline(_user, _tweetsRepository, _today);
+            _timeline = new Timeline(_tweetsRepository, _today);
         }
 
         [When(@"they publish a tweet ""(.*)""")]
@@ -57,7 +57,7 @@ namespace SocialNetwork.Tests
         [Then(@"the timeline should contain ""(.*)""")]
         public void ThenTheTimelineShouldContain(string formattedMessage)
         {
-            _timeline.FormatWallTweets().ShouldContain(formattedMessage);
+            _timeline.FormatWallTweets(_user).ShouldContain(formattedMessage);
         }
     }
 }

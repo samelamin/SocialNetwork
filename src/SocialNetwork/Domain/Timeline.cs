@@ -9,41 +9,38 @@
 
     public class Timeline
     {
-        readonly User _user;
-
         readonly ITweetsRepository _tweetsRepository;
 
         readonly DateTime _currentTime;
         
-        public Timeline(User user,ITweetsRepository tweetsRepository, DateTime currentTime)
+        public Timeline(ITweetsRepository tweetsRepository, DateTime currentTime)
         {
-            _user = user;
             _tweetsRepository = tweetsRepository;
             _currentTime = currentTime;
         }
 
-        private IEnumerable<Tweet> GetTweets()
+        private IEnumerable<Tweet> GetTweets(User user)
         {
-            return _tweetsRepository.GetTweets(_user);
+            return _tweetsRepository.GetTweets(user);
         }
 
-        public string FormatWallTweets()
+        public string FormatWallTweets(User user)
         {
-            StringBuilder formattedOutput = new StringBuilder(FormatReadTweets());
+            StringBuilder formattedOutput = new StringBuilder(FormatReadTweets(user));
             
-            foreach (var followedUser in _user.Following)
+            foreach (var followedUser in user.Following)
             {
-                formattedOutput.AppendFormat("{0} follows {1}", _user.Name, followedUser.Name);
+                formattedOutput.AppendFormat("{0} follows {1}", user.Name, followedUser.Name);
             }
 
             return formattedOutput.ToString();
         }
 
-        public string FormatReadTweets()
+        public string FormatReadTweets(User user)
         {
             StringBuilder formattedOutput = new StringBuilder();
 
-            foreach (var tweet in GetTweets())
+            foreach (var tweet in GetTweets(user))
             {
                 TimeSpan dateDiff = (_currentTime - tweet.DatePublished);
                 formattedOutput.AppendLine(string.Format("{0} - {1} ({2})",tweet.User.Name, tweet.Message, DateTimeHelper.GetFriendlyRelativeTime(dateDiff)));
