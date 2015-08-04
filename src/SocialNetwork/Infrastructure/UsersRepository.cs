@@ -20,7 +20,7 @@ namespace SocialNetwork.Infrastructure
         
         public User GetUser(string name)
         {
-            var user = _users.SingleOrDefault(u => u.Name == name);
+            var user = _users.SingleOrDefault(u => u.Name.ToUpper() == name.ToUpper());
             if (user == null)
             {
                 user = new User(name);
