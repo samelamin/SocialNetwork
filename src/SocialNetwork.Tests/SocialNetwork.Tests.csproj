@@ -75,7 +75,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SocialNetwork.ConsoleApplication\SocialNetwork.ConsoleApplication.csproj">
+    <ProjectReference Include="..\SocialNetwork.ConsoleApplication\SocialNetwork.ConsoleApplication.csproj">
       <Project>{5c3feb5c-21b5-431d-b412-9876a5424937}</Project>
       <Name>SocialNetwork.ConsoleApplication</Name>
     </ProjectReference>

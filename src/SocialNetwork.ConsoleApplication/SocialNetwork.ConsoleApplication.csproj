@@ -55,7 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\SocialNetwork\SocialNetwork.csproj">
+    <ProjectReference Include="..\SocialNetwork\SocialNetwork.csproj">
       <Project>{A8EDE7E7-9AF6-4A14-AC0B-C2B1C58D9944}</Project>
       <Name>SocialNetwork</Name>
     </ProjectReference>
