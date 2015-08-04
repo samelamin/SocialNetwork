@@ -141,6 +141,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 30
  testRunner.Then("the console should contain \"Sam - Whos coming to the LSCC roundtable tonight? (5 " +
                     "minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
+ testRunner.Then("the console should contain \"Sandro - Looking forward to the LSCC Talks Today\" (10" +
+                    " minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -169,6 +172,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 40
  testRunner.Then("the console should contain \"Sam - Whos coming to the LSCC roundtable tonight? (5 " +
                     "minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+ testRunner.Then("the console should contain \"Sandro - Looking forward to the LSCC Talks Today\" (10" +
+                    " minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

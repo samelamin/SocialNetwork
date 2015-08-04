@@ -28,7 +28,7 @@ Scenario: Display a wall
 	When I enter a wall command for "Sam"
 	Then the console should contain "Sam follows Sandro"
 	Then the console should contain "Sam - Whos coming to the LSCC roundtable tonight? (5 minutes ago)"
-	#Then the console should contain "Sandro - Looking forward to the LSCC Talks Today" (10 minutes ago)"
+	Then the console should contain "Sandro - Looking forward to the LSCC Talks Today" (10 minutes ago)"
 
 Scenario: Display a wall (case insensitive)
 	Given the application is awaiting a command
@@ -38,4 +38,4 @@ Scenario: Display a wall (case insensitive)
 	When I enter a wall command for "sam"
 	Then the console should contain "Sam follows Sandro"
 	Then the console should contain "Sam - Whos coming to the LSCC roundtable tonight? (5 minutes ago)"
-	#Then the console should contain "Sandro - Looking forward to the LSCC Talks Today" (10 minutes ago)"
+	Then the console should contain "Sandro - Looking forward to the LSCC Talks Today" (10 minutes ago)"
