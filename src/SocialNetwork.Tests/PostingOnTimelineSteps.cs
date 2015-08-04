@@ -57,7 +57,7 @@ namespace SocialNetwork.Tests
         [Then(@"the timeline should contain ""(.*)""")]
         public void ThenTheTimelineShouldContain(string formattedMessage)
         {
-            _timeline.FormatWallTweets(_user).ShouldContain(formattedMessage);
+            _timeline.FormatTweets(_user,true).ShouldContain(formattedMessage);
         }
     }
 }

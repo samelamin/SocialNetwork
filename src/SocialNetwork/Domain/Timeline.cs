@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
 
     using SocialNetwork.Helpers;
@@ -24,27 +25,25 @@
             return _tweetsRepository.GetTweets(user);
         }
 
-        public string FormatWallTweets(User user)
-        {
-            StringBuilder formattedOutput = new StringBuilder(FormatReadTweets(user));
-            
-            foreach (var followedUser in user.Following)
-            {
-                formattedOutput.AppendLine($"{user.Name} follows {followedUser.Name}");
-                formattedOutput.AppendLine(FormatReadTweets(followedUser));
-            }
-
-            return formattedOutput.ToString();
-        }
-
-        public string FormatReadTweets(User user)
+        public string FormatTweets(User user, bool isWall)
         {
             StringBuilder formattedOutput = new StringBuilder();
+            var aggregatedList = _tweetsRepository.GetTweets(user).ToList();
 
-            foreach (var tweet in GetTweets(user))
+            if (isWall)
+            {
+                foreach (var followedUser in user.Following)
+                {
+                    formattedOutput.AppendLine($"{user.Name} follows {followedUser.Name}");
+                    aggregatedList.AddRange(_tweetsRepository.GetTweets(followedUser));
+                }
+            }
+
+            aggregatedList = aggregatedList.OrderByDescending(tweet => tweet.DatePublished).ToList();
+            foreach (var tweet in aggregatedList)
             {
                 TimeSpan dateDiff = (_currentTime - tweet.DatePublished);
-                formattedOutput.AppendLine(string.Format("{0} - {1} ({2})",tweet.User.Name, tweet.Message, DateTimeHelper.GetFriendlyRelativeTime(dateDiff)));
+                formattedOutput.AppendLine($"{tweet.User.Name} - {tweet.Message} ({DateTimeHelper.GetFriendlyRelativeTime(dateDiff)})");
             }
 
             return formattedOutput.ToString();
