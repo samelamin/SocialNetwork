@@ -22,15 +22,20 @@ Scenario: Follow a user
 
 Scenario: Display a wall
 	Given the application is awaiting a command
-	And a tweet with message "Testing tweets" was posted by user "Sam" 5 minutes ago
+	And a tweet with message "Whos coming to the LSCC roundtable tonight?" was posted by user "Sam" 5 minutes ago
+	And a tweet with message "Looking forward to the LSCC Talks Today" was posted by user "Sandro" 10 minutes ago
 	And the user "Sam" has followed "Sandro"
 	When I enter a wall command for "Sam"
 	Then the console should contain "Sam follows Sandro"
-	And then the console should return "Sam - Testing tweets (5 minutes ago)"
+	Then the console should contain "Sam - Whos coming to the LSCC roundtable tonight? (5 minutes ago)"
+	Then the console should contain "Sandro - Looking forward to the LSCC Talks Today" (10 minutes ago)"
 
 Scenario: Display a wall (case insensitive)
 	Given the application is awaiting a command
-	And a tweet with message "Testing tweets" was posted by user "Sam" 5 minutes ago
+	And a tweet with message "Whos coming to the LSCC roundtable tonight?" was posted by user "Sam" 5 minutes ago
+	And a tweet with message "Looking forward to the LSCC Talks Today" was posted by user "Sandro" 10 minutes ago
 	And the user "Sam" has followed "Sandro"
 	When I enter a wall command for "sam"
 	Then the console should contain "Sam follows Sandro"
+	Then the console should contain "Sam - Whos coming to the LSCC roundtable tonight? (5 minutes ago)"
+	Then the console should contain "Sandro - Looking forward to the LSCC Talks Today" (10 minutes ago)"

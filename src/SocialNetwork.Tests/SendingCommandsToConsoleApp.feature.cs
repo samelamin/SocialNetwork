@@ -127,15 +127,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 24
  testRunner.Given("the application is awaiting a command", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 25
- testRunner.And("a tweet with message \"Testing tweets\" was posted by user \"Sam\" 5 minutes ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("a tweet with message \"Whos coming to the LSCC roundtable tonight?\" was posted by " +
+                    "user \"Sam\" 5 minutes ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
- testRunner.And("the user \"Sam\" has followed \"Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("a tweet with message \"Looking forward to the LSCC Talks Today\" was posted by user" +
+                    " \"Sandro\" 10 minutes ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 27
- testRunner.When("I enter a wall command for \"Sam\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("the user \"Sam\" has followed \"Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
- testRunner.Then("the console should contain \"Sam follows Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I enter a wall command for \"Sam\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 29
- testRunner.And("then the console should return \"Sam - Testing tweets (5 minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("the console should contain \"Sam follows Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 30
+ testRunner.Then("the console should contain \"Sam - Whos coming to the LSCC roundtable tonight? (5 " +
+                    "minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
+ testRunner.Then("the console should contain \"Sandro - Looking forward to the LSCC Talks Today\" (10" +
+                    " minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -145,18 +153,28 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void DisplayAWallCaseInsensitive()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display a wall (case insensitive)", ((string[])(null)));
-#line 31
-this.ScenarioSetup(scenarioInfo);
-#line 32
- testRunner.Given("the application is awaiting a command", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 33
- testRunner.And("a tweet with message \"Testing tweets\" was posted by user \"Sam\" 5 minutes ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 34
- testRunner.And("the user \"Sam\" has followed \"Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("the application is awaiting a command", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 35
- testRunner.When("I enter a wall command for \"sam\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("a tweet with message \"Whos coming to the LSCC roundtable tonight?\" was posted by " +
+                    "user \"Sam\" 5 minutes ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
+ testRunner.And("a tweet with message \"Looking forward to the LSCC Talks Today\" was posted by user" +
+                    " \"Sandro\" 10 minutes ago", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
+ testRunner.And("the user \"Sam\" has followed \"Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 38
+ testRunner.When("I enter a wall command for \"sam\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 39
  testRunner.Then("the console should contain \"Sam follows Sandro\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 40
+ testRunner.Then("the console should contain \"Sam - Whos coming to the LSCC roundtable tonight? (5 " +
+                    "minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+ testRunner.Then("the console should contain \"Sandro - Looking forward to the LSCC Talks Today\" (10" +
+                    " minutes ago)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
