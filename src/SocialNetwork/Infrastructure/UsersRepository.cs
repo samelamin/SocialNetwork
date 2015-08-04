@@ -4,6 +4,8 @@ using SocialNetwork.Domain;
 
 namespace SocialNetwork.Infrastructure
 {
+    using System;
+
     public interface IUsersRepository
     {
         User GetUser(string name);
@@ -11,7 +13,7 @@ namespace SocialNetwork.Infrastructure
 
     public class UsersRepository : IUsersRepository
     {
-        static List<User> _users { get; set; }
+        List<User> _users { get; set; }
 
         public UsersRepository()
         {
@@ -20,7 +22,7 @@ namespace SocialNetwork.Infrastructure
         
         public User GetUser(string name)
         {
-            var user = _users.SingleOrDefault(u => u.Name.ToUpper() == name.ToUpper());
+            var user = _users.SingleOrDefault(u => u.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
             if (user == null)
             {
                 user = new User(name);

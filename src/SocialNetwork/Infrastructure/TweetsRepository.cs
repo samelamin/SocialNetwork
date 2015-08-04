@@ -4,6 +4,8 @@ using SocialNetwork.Domain;
 
 namespace SocialNetwork.Infrastructure
 {
+    using System;
+
     public interface ITweetsRepository
     {
         void PostTweet(Tweet tweet);
@@ -13,7 +15,7 @@ namespace SocialNetwork.Infrastructure
 
     public class TweetsRepository : ITweetsRepository
     {
-        public static List<Tweet> Tweets { get; set; }
+        public List<Tweet> Tweets { get; set; }
 
         public TweetsRepository()
         {
@@ -27,7 +29,7 @@ namespace SocialNetwork.Infrastructure
 
         public IEnumerable<Tweet> GetTweets(User user)
         {
-            return Tweets.Where(tweet => tweet.User.Name.ToUpper() == user.Name.ToUpper());
+            return Tweets.Where(tweet => tweet.User.Name.Equals(user.Name, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }

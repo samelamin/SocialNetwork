@@ -28,7 +28,7 @@ Scenario: Display a wall
 	Then the console should contain "Sam follows Sandro"
 	And then the console should return "Sam - Testing tweets (5 minutes ago)"
 
-	Scenario: Display a wall (case insensitive)
+Scenario: Display a wall (case insensitive)
 	Given the application is awaiting a command
 	And a tweet with message "Testing tweets" was posted by user "Sam" 5 minutes ago
 	And the user "Sam" has followed "Sandro"

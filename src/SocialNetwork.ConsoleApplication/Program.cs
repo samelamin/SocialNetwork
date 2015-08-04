@@ -13,7 +13,7 @@ namespace SocialNetwork.ConsoleApplication
 {
     public class Program
     {
-        static ITweetsRepository _tweetsRepository;
+        ITweetsRepository _tweetsRepository;
 
         readonly IUsersRepository _usersRepository;
 
