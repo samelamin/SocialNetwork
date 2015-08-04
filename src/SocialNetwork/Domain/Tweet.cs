@@ -4,9 +4,9 @@
 
     public class Tweet
     {
-        public readonly User User;
-
         public readonly string Message;
+
+        public readonly User User;
 
         public DateTime DatePublished;
 
@@ -16,6 +16,5 @@
             Message = message;
             DatePublished = datePublished;
         }
-
     }
 }

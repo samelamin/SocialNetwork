@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using SocialNetwork.Domain;
-
-namespace SocialNetwork.Infrastructure
+﻿namespace SocialNetwork.Infrastructure
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using SocialNetwork.Domain;
 
     public interface ITweetsRepository
     {
@@ -15,12 +15,12 @@ namespace SocialNetwork.Infrastructure
 
     public class TweetsRepository : ITweetsRepository
     {
-        public List<Tweet> Tweets { get; set; }
-
         public TweetsRepository()
         {
             Tweets = new List<Tweet>();
         }
+
+        public List<Tweet> Tweets { get; set; }
 
         public void PostTweet(Tweet tweet)
         {

@@ -4,10 +4,7 @@
 
     public class User
     {
-
         public readonly string Name;
-
-        public List<User> Following { get; set; }
 
         public User(string name)
         {
@@ -15,10 +12,11 @@
             Following = new List<User>();
         }
 
+        public List<User> Following { get; set; }
+
         public void Follow(User follower)
         {
             Following.Add(follower);
         }
-
     }
 }

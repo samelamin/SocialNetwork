@@ -1,20 +1,19 @@
-﻿using System.Collections.Generic;
-using System.IO;
-
-using SocialNetwork.Domain;
-using SocialNetwork.Infrastructure;
-
-namespace SocialNetwork.ConsoleApplication.Commands
+﻿namespace SocialNetwork.ConsoleApplication.Commands
 {
+    using System.IO;
+
+    using SocialNetwork.Domain;
+    using SocialNetwork.Infrastructure;
+
     public class FollowCommand : ICommand
     {
-        readonly User _user;
-
-        readonly User _userToFollow;
-
         readonly TextWriter _textWriter;
 
         readonly ITweetsRepository _tweetsRepository;
+
+        readonly User _user;
+
+        readonly User _userToFollow;
 
         public FollowCommand(User user, User userToFollow, TextWriter textWriter)
         {

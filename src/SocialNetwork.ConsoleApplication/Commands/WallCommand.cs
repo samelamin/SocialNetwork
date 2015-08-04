@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-
-using SocialNetwork.Domain;
-using SocialNetwork.Infrastructure;
-
-namespace SocialNetwork.ConsoleApplication.Commands
+﻿namespace SocialNetwork.ConsoleApplication.Commands
 {
+    using System.IO;
+
+    using SocialNetwork.Domain;
+    using SocialNetwork.Infrastructure;
+
     public class WallCommand : ICommand
     {
-        readonly User _user;
-
-        readonly ITweetsRepository _tweetsRepository;
+        readonly ParsedInput _parsedInput;
 
         readonly TextWriter _textWriter;
 
-        readonly ParsedInput _parsedInput;
+        readonly ITweetsRepository _tweetsRepository;
+
+        readonly User _user;
 
         public WallCommand(User user, ITweetsRepository tweetsRepository, TextWriter textWriter, ParsedInput parsedInput)
         {
@@ -27,8 +25,8 @@ namespace SocialNetwork.ConsoleApplication.Commands
 
         public void Execute()
         {
-            Timeline timeline = new Timeline(_tweetsRepository, _parsedInput.CurrentDate);
-            _textWriter.WriteLine(timeline.FormatTweets(_user,isWall:true));
+            var timeline = new Timeline(_tweetsRepository, _parsedInput.CurrentDate);
+            _textWriter.WriteLine(timeline.FormatTweets(_user, true));
         }
     }
 }

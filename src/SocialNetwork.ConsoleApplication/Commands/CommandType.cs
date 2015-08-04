@@ -3,8 +3,11 @@
     public enum CommandType
     {
         Post,
+
         Read,
+
         Follow,
+
         Wall
     }
 }

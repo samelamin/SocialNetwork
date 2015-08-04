@@ -1,22 +1,22 @@
-﻿using System;
-
-using Shouldly;
-
-using SocialNetwork.Domain;
-using SocialNetwork.Infrastructure;
-
-using TechTalk.SpecFlow;
-
-namespace SocialNetwork.Tests
+﻿namespace SocialNetwork.Tests
 {
+    using System;
+
+    using Shouldly;
+
+    using SocialNetwork.Domain;
+    using SocialNetwork.Infrastructure;
+
+    using TechTalk.SpecFlow;
+
     [Binding]
     public class PostingOnTimelineSteps
     {
-        DateTime _today = DateTime.Today;
-
-        ITweetsRepository _tweetsRepository = new TweetsRepository();
+        readonly ITweetsRepository _tweetsRepository = new TweetsRepository();
 
         Timeline _timeline;
+
+        DateTime _today = DateTime.Today;
 
         User _user;
 
@@ -57,7 +57,7 @@ namespace SocialNetwork.Tests
         [Then(@"the timeline should contain ""(.*)""")]
         public void ThenTheTimelineShouldContain(string formattedMessage)
         {
-            _timeline.FormatTweets(_user,true).ShouldContain(formattedMessage);
+            _timeline.FormatTweets(_user, true).ShouldContain(formattedMessage);
         }
     }
 }

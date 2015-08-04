@@ -1,41 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using SocialNetwork.Domain;
-using SocialNetwork.Infrastructure;
-
-namespace SocialNetwork.ConsoleApplication.Commands
+﻿namespace SocialNetwork.ConsoleApplication.Commands
 {
+    using System.IO;
+
+    using SocialNetwork.Domain;
+    using SocialNetwork.Infrastructure;
+
     public class CommandFactory
     {
-        public ICommand Create( User user, ParsedInput parsedInput, ITweetsRepository tweetsRepository,TextWriter textWriter)
+        public ICommand Create(User user,
+            ParsedInput parsedInput,
+            ITweetsRepository tweetsRepository,
+            TextWriter textWriter)
         {
             switch (parsedInput.CommandType)
             {
-                case CommandType.Post:
-                    {
-                        return new PostCommand(user, tweetsRepository, parsedInput, textWriter);
-                    }
                 case CommandType.Read:
-                    {
-                        return new ReadCommand(user, tweetsRepository, textWriter, parsedInput);
-                    }
+                {
+                    return new ReadCommand(user, tweetsRepository, textWriter, parsedInput);
+                }
                 case CommandType.Follow:
-                    {
-                        return new FollowCommand(user, new User(parsedInput.RequiredAction),textWriter);
-                    }
+                {
+                    return new FollowCommand(user, new User(parsedInput.RequiredAction), textWriter);
+                }
                 case CommandType.Wall:
+
+                {
+                    return new WallCommand(user, tweetsRepository, textWriter, parsedInput);
+                }
+                case CommandType.Post:
                 default:
-                    {
-                        return new WallCommand(user,tweetsRepository, textWriter, parsedInput);
-                    }
-     
+                {
+                    return new PostCommand(user, tweetsRepository, parsedInput, textWriter);
+                }
             }
         }
     }
-
 }
