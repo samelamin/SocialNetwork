@@ -30,7 +30,8 @@
             
             foreach (var followedUser in user.Following)
             {
-                formattedOutput.AppendFormat("{0} follows {1}", user.Name, followedUser.Name);
+                formattedOutput.AppendLine($"{user.Name} follows {followedUser.Name}");
+                formattedOutput.AppendLine(FormatReadTweets(followedUser));
             }
 
             return formattedOutput.ToString();
