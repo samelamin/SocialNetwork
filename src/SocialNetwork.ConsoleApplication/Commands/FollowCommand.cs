@@ -9,8 +9,6 @@
     {
         readonly TextWriter _textWriter;
 
-        readonly ITweetsRepository _tweetsRepository;
-
         readonly User _user;
 
         readonly User _userToFollow;
